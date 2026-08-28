@@ -180,39 +180,108 @@ export default function Header() {
       </div>
 
       {/* Mobile menu */}
+      {/* Mobile Menu Backdrop */}
+      {/* Mobile Menu Backdrop */}
+      {menuOpen && (
+        <div
+          className="lg:hidden fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
+          onClick={() => setMenuOpen(false)}
+        />
+      )}
+
+      {/* Mobile Menu Drawer */}
       <div
-        className="lg:hidden overflow-hidden transition-all duration-300"
+        className={`lg:hidden fixed top-0 right-0 z-50 h-full w-[85%] max-w-sm
+    shadow-2xl transition-all duration-300 ease-out
+    ${
+      menuOpen
+        ? "translate-x-0 opacity-100"
+        : "translate-x-full opacity-0 pointer-events-none"
+    }`}
         style={{
-          maxHeight: menuOpen ? "400px" : "0",
-          borderTop: menuOpen ? "1px solid #e2e8f0" : "none",
+          backgroundColor: "#ffffff",
+          opacity: menuOpen ? 1 : 0,
         }}
       >
-        <nav className="px-6 py-4 flex flex-col gap-1">
+        {/* Drawer Header */}
+        <div
+          className="flex items-center justify-between px-6 py-5"
+          style={{
+            borderBottom: "1px solid #e2e8f0",
+            backgroundColor: "#ffffff",
+          }}
+        >
+          <span className="text-lg font-bold" style={{ color: NAVY }}>
+            Menu
+          </span>
+
+          <button
+            type="button"
+            onClick={() => setMenuOpen(false)}
+            className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors"
+            style={{
+              backgroundColor: "#f8fafc",
+              color: NAVY,
+            }}
+            aria-label="Close menu"
+          >
+            ✕
+          </button>
+        </div>
+
+        {/* Navigation */}
+        <nav
+          className="px-6 py-6 flex flex-col gap-1"
+          style={{
+            backgroundColor: "#ffffff",
+          }}
+        >
           {navLinks.map((l) => (
             <a
               key={l}
               href={`#${l.toLowerCase().replace(/\s+/g, "-")}`}
-              className="py-2.5 text-sm font-medium text-slate-700 hover:text-blue-600 transition-colors"
+              className="py-3 text-sm font-medium transition-colors"
+              style={{
+                color: "#334155",
+              }}
               onClick={() => setMenuOpen(false)}
             >
               {l}
             </a>
           ))}
-          <div className="pt-3 mt-2 border-t border-slate-100 flex flex-col gap-2">
+
+          {/* CTA Section */}
+          <div
+            className="pt-5 mt-3 flex flex-col gap-3"
+            style={{
+              borderTop: "1px solid #f1f5f9",
+            }}
+          >
+            {/* Call Button */}
             <a
               href={`tel:${PHONE}`}
-              className="flex items-center justify-center gap-2 py-3 rounded-xl border text-sm font-semibold transition-colors hover:bg-slate-50"
-              style={{ borderColor: BLUE, color: BLUE }}
+              className="flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold transition-colors hover:bg-slate-50"
+              style={{
+                border: `1px solid ${BLUE}`,
+                color: BLUE,
+                backgroundColor: "#ffffff",
+              }}
             >
-              <IconPhone /> Call {PHONE}
+              <IconPhone />
+              Call {PHONE}
             </a>
+
+            {/* Appointment Button */}
             <a
               href="#contact"
-              className="flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold text-white"
-              style={{ background: BLUE }}
+              className="flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              style={{
+                backgroundColor: BLUE,
+              }}
               onClick={() => setMenuOpen(false)}
             >
-              <IconCalendar /> Book an Appointment
+              <IconCalendar />
+              Book an Appointment
             </a>
           </div>
         </nav>
