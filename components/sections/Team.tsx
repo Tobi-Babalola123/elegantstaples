@@ -48,11 +48,11 @@ const team = [
     alt: "Dr. Sarah Mitchell, Principal Dentist at Elegant Staples Dental Care",
   },
   {
-    name: "Dr. James Okonkwo",
+    name: "Dr. Tuan Anthony Dao",
     role: "Cosmetic Dentist",
-    creds: "DMD, McGill University · 12 yrs experience",
+    creds: "DMD",
     img: "https://images.unsplash.com/photo-1758691463393-a2aa9900af8a?w=400&h=480&fit=crop&auto=format",
-    alt: "Dr. James Okonkwo, Cosmetic Dentist",
+    alt: "Dr. Tuan Anthony Dao",
   },
   {
     name: "Dr. Priya Sharma",

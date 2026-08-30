@@ -1,58 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-const PHONE = "361-850-8000";
-const ADDRESS = "123 Maple Street, Suite 200, Toronto, ON M5V 2T6";
-const EMAIL = "hello@elegantstaples.ca";
+import { Menu, X, Phone, ChevronDown, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 
 const BLUE = "#1a6fd4";
 const NAVY = "#0f172a";
-
-const IconMenu = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="w-6 h-6"
-  >
-    <line x1="3" y1="6" x2="21" y2="6" />
-    <line x1="3" y1="12" x2="21" y2="12" />
-    <line x1="3" y1="18" x2="21" y2="18" />
-  </svg>
-);
-
-const IconX = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="w-6 h-6"
-  >
-    <line x1="18" y1="6" x2="6" y2="18" />
-    <line x1="6" y1="6" x2="18" y2="18" />
-  </svg>
-);
-
-const IconPhone = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.75"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="w-5 h-5"
-  >
-    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.64 3.42 2 2 0 0 1 3.62 1.26h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.1a16 16 0 0 0 6 6l1.61-1.61a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-  </svg>
-);
 
 const IconCalendar = () => (
   <svg
@@ -71,221 +24,217 @@ const IconCalendar = () => (
   </svg>
 );
 
-export default function Header() {
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Our Dentists", href: "#team" },
+  { label: "Reviews", href: "#testimonials" },
+  { label: "Contact", href: "#contact" },
+];
+
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
 
-  const navLinks = [
-    "Home",
-    "About",
-    "Services",
-    "Our Dentists",
-    "Reviews",
-    "Contact",
-  ];
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  const closeMobileMenu = () => {
+    setOpen(false);
+  };
+
+  useEffect(() => {
+    if (open) {
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
+    } else {
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   return (
-    <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-      style={{
-        background: scrolled ? "rgba(255,255,255,0.97)" : "#ffffff",
-        boxShadow: scrolled
-          ? "0 1px 24px rgba(15,23,42,0.08)"
-          : "0 1px 0 #e2e8f0",
-        backdropFilter: "blur(12px)",
-      }}
-    >
+    <>
+      {/* Mobile backdrop */}
       <div
-        className="max-w-7xl mx-auto px-6 flex items-center justify-between"
-        style={{ height: 72 }}
+        onClick={closeMobileMenu}
+        className={`fixed inset-0 z-[55] bg-[#0F1923]/45 backdrop-blur-[2px] lg:hidden transition-opacity duration-300 ${
+          open
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
+        aria-hidden="true"
+      />
+
+      <header
+        className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-300 ${
+          scrolled
+            ? "bg-white/95 backdrop-blur-xl shadow-lg border-b border-[#0F1923]/10"
+            : "bg-white/90 backdrop-blur-md border-b border-[#0F1923]/5"
+        }`}
       >
-        {/* Logo */}
-        <a href="#" className="flex items-center gap-2.5 flex-shrink-0">
-          <div
-            className="w-9 h-9 rounded-xl flex items-center justify-center"
-            style={{ background: BLUE }}
-          >
-            <svg viewBox="0 0 24 24" fill="white" className="w-5 h-5">
-              <path d="M12 2C9 2 6 4 6 7c0 2 .5 3.5 1 5l1 6c.3 1.5 1.5 2 2 2h4c.5 0 1.7-.5 2-2l1-6c.5-1.5 1-3 1-5 0-3-3-5-6-5z" />
-            </svg>
-          </div>
-          <div>
-            <div
-              className="font-bold text-sm leading-tight"
-              style={{
-                color: NAVY,
-              }}
-            >
-              Elegant Staples
-            </div>
-            <div
-              className="text-xs font-medium"
-              style={{
-                color: "#64748b",
-              }}
-            >
-              Dental Care
-            </div>
-          </div>
-        </a>
-
-        {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-7">
-          {navLinks.map((l) => (
-            <a
-              key={l}
-              href={`#${l.toLowerCase().replace(/\s+/g, "-")}`}
-              className="text-sm font-medium transition-colors duration-150 hover:text-blue-600"
-              style={{ color: "#475569" }}
-            >
-              {l}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Main navbar */}
+          <div className="h-[80px] flex items-center justify-between gap-6">
+            {/* Logo */}
+            <a href="#" className="flex items-center flex-shrink-0">
+              <Image
+                src="/images/elegantstaples_logo.png"
+                alt="Elegant Staples Dental Care"
+                width={160}
+                height={50}
+                className="w-auto h-19 object-contain"
+                priority
+              />
             </a>
-          ))}
-        </nav>
 
-        {/* CTA + mobile toggle */}
-        <div className="flex items-center gap-3">
-          <a
-            href={`tel:${PHONE}`}
-            className="hidden sm:flex items-center gap-2 text-sm font-medium transition-colors hover:text-blue-700"
-            style={{ color: "#475569" }}
-          >
-            <IconPhone />
-            <span className="hidden xl:inline">{PHONE}</span>
-          </a>
-          <a
-            href="#contact"
-            className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-150 hover:opacity-90 hover:shadow-md"
-            style={{
-              background: BLUE,
-            }}
-          >
-            <IconCalendar />
-            Book an Appointment
-          </a>
-          <button
-            className="lg:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-          >
-            {menuOpen ? <IconX /> : <IconMenu />}
-          </button>
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center gap-7 xl:gap-8">
+              {/* Services dropdown */}
+
+              {/* Other desktop links */}
+              {navLinks.map(({ label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  className="relative text-[#0F1923]/75 hover:text-[#18A2DF] text-[13px] font-medium tracking-wide transition-colors duration-200 group"
+                >
+                  {label}
+
+                  <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-[#18A2DF] transition-all duration-300 group-hover:w-full" />
+                </a>
+              ))}
+            </nav>
+
+            {/* Desktop Right Side */}
+            <div className="hidden lg:flex items-center gap-4">
+              <a
+                href="tel:361-850-8000"
+                className="inline-flex items-center gap-2 text-[#0F1923]/70 hover:text-[#18A2DF] text-xs font-medium transition-colors"
+              >
+                <Phone size={14} className="text-[#18A2DF]" />
+
+                <span>Call 361-850-8000</span>
+              </a>
+
+              <a
+                href="#contact"
+                className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-150 hover:opacity-90 hover:shadow-md"
+                style={{
+                  background: BLUE,
+                }}
+              >
+                <IconCalendar />
+                Book an Appointment
+              </a>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              type="button"
+              onClick={() => setOpen((prev) => !prev)}
+              className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-[9px] border border-[#0F1923]/15 bg-[#0F1923]/5 text-[#0F1923] hover:border-[#18A2DF] hover:text-[#18A2DF] transition-all duration-200"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              aria-controls="mobile-navigation"
+            >
+              {open ? <X size={21} /> : <Menu size={21} />}
+            </button>
+          </div>
         </div>
-      </div>
+      </header>
 
-      {/* Mobile menu */}
-      {/* Mobile Menu Backdrop */}
-      {/* Mobile Menu Backdrop */}
-      {menuOpen && (
-        <div
-          className="lg:hidden fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
-          onClick={() => setMenuOpen(false)}
-        />
-      )}
-
-      {/* Mobile Menu Drawer */}
-      <div
-        className={`lg:hidden fixed top-0 right-0 z-50 h-full w-[85%] max-w-sm
-    shadow-2xl transition-all duration-300 ease-out
-    ${
-      menuOpen
-        ? "translate-x-0 opacity-100"
-        : "translate-x-full opacity-0 pointer-events-none"
-    }`}
-        style={{
-          backgroundColor: "#ffffff",
-          opacity: menuOpen ? 1 : 0,
-        }}
+      {/* =====================================================
+          MOBILE RIGHT-SIDE DRAWER
+      ===================================================== */}
+      <aside
+        id="mobile-navigation"
+        className={`fixed top-0 right-0 bottom-0 z-[70] w-[min(88vw,380px)] bg-[#0F1923] shadow-2xl lg:hidden transition-transform duration-300 ease-out ${
+          open ? "translate-x-0" : "translate-x-full"
+        }`}
+        aria-hidden={!open}
       >
-        {/* Drawer Header */}
-        <div
-          className="flex items-center justify-between px-6 py-5"
-          style={{
-            borderBottom: "1px solid #e2e8f0",
-            backgroundColor: "#ffffff",
-          }}
-        >
-          <span className="text-lg font-bold" style={{ color: NAVY }}>
-            Menu
-          </span>
-
-          <button
-            type="button"
-            onClick={() => setMenuOpen(false)}
-            className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors"
-            style={{
-              backgroundColor: "#f8fafc",
-              color: NAVY,
-            }}
-            aria-label="Close menu"
-          >
-            ✕
-          </button>
-        </div>
-
-        {/* Navigation */}
-        <nav
-          className="px-6 py-6 flex flex-col gap-1"
-          style={{
-            backgroundColor: "#ffffff",
-          }}
-        >
-          {navLinks.map((l) => (
-            <a
-              key={l}
-              href={`#${l.toLowerCase().replace(/\s+/g, "-")}`}
-              className="py-3 text-sm font-medium transition-colors"
-              style={{
-                color: "#334155",
-              }}
-              onClick={() => setMenuOpen(false)}
-            >
-              {l}
-            </a>
-          ))}
-
-          {/* CTA Section */}
-          <div
-            className="pt-5 mt-3 flex flex-col gap-3"
-            style={{
-              borderTop: "1px solid #f1f5f9",
-            }}
-          >
-            {/* Call Button */}
-            <a
-              href={`tel:${PHONE}`}
-              className="flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold transition-colors hover:bg-slate-50"
-              style={{
-                border: `1px solid ${BLUE}`,
-                color: BLUE,
-                backgroundColor: "#ffffff",
-              }}
-            >
-              <IconPhone />
-              Call {PHONE}
+        <div className="h-full flex flex-col">
+          {/* Drawer Header */}
+          <div className="flex items-center justify-between px-5 sm:px-6 h-[76px] border-b border-white/10">
+            <a href="#" className="flex items-center flex-shrink-0">
+              <Image
+                src="/images/elegantstaples_logo.png"
+                alt="Elegant Staples Dental Care"
+                width={200}
+                height={65}
+                className="w-auto h-18 object-contain brightness-0 invert"
+                priority
+              />
             </a>
 
-            {/* Appointment Button */}
+            <button
+              type="button"
+              onClick={closeMobileMenu}
+              className="w-10 h-10 rounded-[9px] border border-white/10 bg-white/5 text-white flex items-center justify-center hover:border-[#18A2DF] hover:text-[#18A2DF] transition-colors"
+              aria-label="Close menu"
+            >
+              <X size={20} />
+            </button>
+          </div>
+
+          {/* Drawer Navigation */}
+          <nav className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-5 sm:px-6 py-5">
+            {/* Services */}
+
+            {/* Other Links */}
+            {navLinks.map(({ label, href }) => (
+              <a
+                key={label}
+                href={href}
+                onClick={closeMobileMenu}
+                className="flex items-center justify-between py-4 text-white/80 hover:text-[#18A2DF] text-base font-medium border-b border-white/10 transition-colors"
+              >
+                <span>{label}</span>
+
+                <ArrowUpRight size={16} className="text-white/25" />
+              </a>
+            ))}
+          </nav>
+
+          {/* Drawer Footer / CTA */}
+          <div className="px-5 sm:px-6 pb-6 pt-4 border-t border-white/10">
             <a
               href="#contact"
-              className="flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold text-white transition-all duration-150 hover:opacity-90 hover:shadow-md"
               style={{
-                backgroundColor: BLUE,
+                background: BLUE,
               }}
-              onClick={() => setMenuOpen(false)}
             >
               <IconCalendar />
               Book an Appointment
             </a>
+
+            <a
+              href="tel:361-850-8000"
+              className="flex items-center justify-center gap-2 text-white/60 hover:text-white text-sm mt-4 transition-colors"
+            >
+              <Phone size={15} className="text-[#18A2DF]" />
+              <span>361-850-8000</span>
+            </a>
           </div>
-        </nav>
-      </div>
-    </header>
+        </div>
+      </aside>
+    </>
   );
 }

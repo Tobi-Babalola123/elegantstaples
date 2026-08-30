@@ -2,7 +2,7 @@
 
 const BLUE = "#1a6fd4";
 const NAVY = "#0f172a";
-const PHONE = "(555) 012-3456";
+const PHONE = "361-850-8000";
 const ADDRESS = "123 Maple Street, Suite 200, Toronto, ON M5V 2T6";
 const EMAIL = "hello@elegantstaples.ca";
 

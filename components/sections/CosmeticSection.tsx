@@ -49,7 +49,7 @@ export default function CosmeticSection() {
           <p className="text-slate-400 text-lg leading-relaxed mb-8 max-w-lg">
             Explore cosmetic treatments designed to improve the appearance of
             your smile while maintaining a completely natural look. Veneers,
-            whitening, and more — tailored to you.
+            whitening, and more tailored to you.
           </p>
           <a
             href="#contact"

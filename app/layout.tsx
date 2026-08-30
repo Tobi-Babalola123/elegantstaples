@@ -32,7 +32,7 @@ const stackSansNotch = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "High Desert Air Ductor | HVAC Services in Indian Wells Valley, CA",
+  title: "Elegant Staples | Trusted Dental Care & Services",
 
   icons: {
     icon: "/images/navlogo.png",
@@ -41,67 +41,56 @@ export const metadata: Metadata = {
   },
 
   description:
-    "High Desert Air Ductor provides reliable heating, air conditioning, HVAC repair, installation, maintenance, and indoor air quality services for homes and businesses throughout Indian Wells Valley, California.",
+    "Elegant Staples provides compassionate, professional dental care for patients and families. From routine cleanings and preventive care to restorative and cosmetic dentistry, our team is here to help you achieve a healthy, confident smile.",
 
   keywords: [
-    "High Desert Air Ductor",
-    "High Desert Air Doctor",
-    "High Desert Air Ductor HVAC",
-    "HVAC Indian Wells Valley",
-    "HVAC contractor Indian Wells Valley",
-    "HVAC company Indian Wells Valley",
-    "HVAC services Indian Wells Valley",
-    "HVAC repair Indian Wells Valley",
-    "AC repair Indian Wells Valley",
-    "air conditioning repair Indian Wells Valley",
-    "heating repair Indian Wells Valley",
-    "heating contractor Indian Wells Valley",
-    "air conditioning contractor Indian Wells Valley",
-    "HVAC installation Indian Wells Valley",
-    "HVAC replacement Indian Wells Valley",
-    "HVAC maintenance Indian Wells Valley",
-    "indoor air quality Indian Wells Valley",
-    "heating and cooling Indian Wells Valley",
-    "HVAC contractor Ridgecrest CA",
-    "HVAC company Ridgecrest CA",
-    "HVAC repair Ridgecrest CA",
-    "AC repair Ridgecrest CA",
-    "heating repair Ridgecrest CA",
-    "air conditioning Ridgecrest CA",
-    "HVAC installation Ridgecrest CA",
-    "HVAC maintenance Ridgecrest CA",
-    "HVAC contractor Inyokern CA",
-    "HVAC services Inyokern CA",
-    "AC repair Inyokern CA",
-    "heating repair Inyokern CA",
-    "HVAC contractor Kern County CA",
-    "HVAC services Kern County CA",
+    "Elegant Staples",
+    "Elegant Staples Dental",
+    "Elegant Staples Dentistry",
+    "Elegant Staples Dental Care",
+    "dentist",
+    "dental clinic",
+    "dental office",
+    "dentist near me",
+    "dental care",
+    "family dentist",
+    "general dentistry",
+    "preventive dentistry",
+    "teeth cleaning",
+    "dental checkup",
+    "cosmetic dentistry",
+    "restorative dentistry",
+    "oral health",
+    "professional dental care",
+    "affordable dental care",
+    "emergency dentist",
+    "dental services",
+    "dentist appointment",
   ],
 
   authors: [
     {
-      name: "High Desert Air Ductor",
+      name: "Elegant Staples",
     },
   ],
 
-  creator: "High Desert Air Ductor",
-  publisher: "High Desert Air Ductor",
-  applicationName: "High Desert Air Ductor",
+  creator: "Elegant Staples",
+  publisher: "Elegant Staples",
+  applicationName: "Elegant Staples",
 
-  category: "HVAC Services",
+  category: "Dental Services",
 
   metadataBase: new URL("https://your-domain.com"),
 
   openGraph: {
-    title:
-      "High Desert Air Ductor | Reliable HVAC Services in Indian Wells Valley",
+    title: "Elegant Staples | Trusted Dental Care & Services",
 
     description:
-      "Reliable heating, cooling, HVAC repair, installation, maintenance, and indoor air quality solutions for homes and businesses throughout Indian Wells Valley, California.",
+      "Compassionate, professional dental care focused on your comfort, oral health, and confidence. Explore dental services and book an appointment with Elegant Staples.",
 
     url: "https://your-domain.com",
 
-    siteName: "High Desert Air Ductor",
+    siteName: "Elegant Staples",
 
     locale: "en_US",
 
@@ -111,10 +100,10 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
 
-    title: "High Desert Air Ductor | HVAC Services in Indian Wells Valley",
+    title: "Elegant Staples | Trusted Dental Care & Services",
 
     description:
-      "Reliable HVAC repair, installation, maintenance, heating, cooling, and indoor air quality services throughout Indian Wells Valley, California.",
+      "Professional and compassionate dental care designed around your comfort, oral health, and confident smile.",
   },
 
   robots: {

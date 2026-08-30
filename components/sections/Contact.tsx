@@ -159,7 +159,8 @@ export default function Contact() {
                   {
                     icon: <IconClock />,
                     label: "Hours",
-                    value: "Mon–Fri 8am–6pm · Sat 9am–3pm · Sun Closed",
+                    value:
+                      "Mon–Fri 9am–7pm · Sat 9am–4pm · Late evening appointments available, call for details",
                   },
                 ].map(({ icon, label, value }) => (
                   <div key={label} className="flex items-start gap-3">

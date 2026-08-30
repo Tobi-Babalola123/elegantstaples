@@ -1,6 +1,6 @@
 "use client";
 
-const PHONE = "(555) 012-3456";
+const PHONE = "361-850-8000";
 const IconPhone = () => (
   <svg
     viewBox="0 0 24 24"
@@ -64,8 +64,7 @@ export default function EmergencyCTA() {
             </h2>
             <p className="text-slate-400 text-lg leading-relaxed mb-8 max-w-xl">
               Don't let dental pain wait. Contact our team to discuss your
-              emergency and find out how we can help — we prioritize urgent
-              cases.
+              emergency and find out how we can help we prioritize urgent cases.
             </p>
             <div className="flex flex-wrap justify-center lg:justify-start gap-4">
               <a
