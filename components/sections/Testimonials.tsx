@@ -72,7 +72,8 @@ export default function Testimonials() {
               letterSpacing: "-0.02em",
             }}
           >
-            What Our Patients Say
+            What Our
+            <br className="sm:hidden" /> Patients Say
           </h2>
           <p className="text-slate-500 text-lg max-w-xl mx-auto">
             Real words from real patients <br className="sm:hidden" /> who trust

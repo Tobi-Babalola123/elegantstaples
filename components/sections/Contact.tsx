@@ -4,7 +4,7 @@ import { useState } from "react";
 const PHONE = "361-850-8000";
 const ADDRESS =
   "41177 South Staples Blvd Suite 300 Corpus Christi, Texas  78411";
-const EMAIL = "hello@elegantstaples.ca";
+const EMAIL = "elegantefrontdesk@gmail.com";
 
 const BLUE = "#1a6fd4";
 const NAVY = "#0f172a";
@@ -201,26 +201,18 @@ export default function Contact() {
               className="rounded-2xl overflow-hidden border"
               style={{
                 borderColor: "#e2e8f0",
-                height: 220,
-                background: "#e8f0fe",
+                height: 260,
               }}
             >
-              <div className="w-full h-full flex flex-col items-center justify-center gap-3 text-blue-400">
-                <IconMapPin />
-                <div
-                  className="text-sm font-medium"
-                  style={{ color: "#64748b" }}
-                >
-                  {ADDRESS}
-                </div>
-                <a
-                  href="#"
-                  className="text-xs font-semibold underline"
-                  style={{ color: BLUE }}
-                >
-                  Open in Google Maps
-                </a>
-              </div>
+              <iframe
+                title="Elegant Staples Dental Office Location"
+                src={`https://www.google.com/maps?q=${encodeURIComponent(
+                  ADDRESS,
+                )}&output=embed`}
+                className="w-full h-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
 

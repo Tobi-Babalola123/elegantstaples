@@ -54,7 +54,7 @@ export default function AppointmentCTA() {
             letterSpacing: "-0.02em",
           }}
         >
-          Ready to Take Care of Your Smile?
+          Ready to Take Care <br className="sm:hidden" /> of Your Smile?
         </h2>
         <p className="text-slate-600 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
           Whether you need a routine checkup, cosmetic treatment, or urgent

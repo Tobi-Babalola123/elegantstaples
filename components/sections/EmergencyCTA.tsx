@@ -59,7 +59,8 @@ export default function EmergencyCTA() {
                 letterSpacing: "-0.02em",
               }}
             >
-              Need Urgent Dental Care?
+              Need Urgent
+              <br className="sm:hidden" /> Dental Care?
             </h2>
             <p className="text-slate-400 text-lg leading-relaxed mb-8 max-w-xl">
               Don't let dental pain wait. Contact our team to discuss your

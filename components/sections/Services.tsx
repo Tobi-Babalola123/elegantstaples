@@ -194,7 +194,8 @@ export default function Services() {
               letterSpacing: "-0.02em",
             }}
           >
-            Dental Care for Every Stage of Life
+            Dental Care for
+            <br className="sm:hidden" /> Every Stage of Life
           </h2>
           <p className="text-slate-500 text-lg max-w-2xl mx-auto leading-relaxed">
             From preventive care to cosmetic and emergency dentistry, we provide

@@ -121,7 +121,8 @@ export default function Team() {
               letterSpacing: "-0.02em",
             }}
           >
-            Meet Your Dental Team
+            Meet Our
+            <br className="sm:hidden" /> Dental Team
           </h2>
           <p className="text-slate-500 text-lg max-w-xl mx-auto">
             Experienced professionals dedicated to making every visit
