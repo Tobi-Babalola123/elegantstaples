@@ -97,18 +97,20 @@ export default function WhyUs() {
   return (
     <section className="py-24 px-6" style={{ background: "#f8fafc" }}>
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-14">
+        <div className="text-center mb-14 px-4">
           <h2
-            className="text-4xl font-extrabold mb-4"
+            className="text-3xl sm:text-4xl font-extrabold mb-4 leading-tight"
             style={{
               color: NAVY,
               letterSpacing: "-0.02em",
             }}
           >
-            Why Choose Elegant Staples?
+            Why Choose <br className="sm:hidden" />
+            Elegant Staples?
           </h2>
-          <p className="text-slate-500 text-lg max-w-xl mx-auto">
-            We combine clinical excellence with genuine warmth — because great
+
+          <p className="text-slate-500 text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
+            We combine clinical excellence with genuine warmth because great
             dental care is about more than just teeth.
           </p>
         </div>

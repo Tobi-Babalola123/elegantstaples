@@ -75,7 +75,8 @@ export default function Testimonials() {
             What Our Patients Say
           </h2>
           <p className="text-slate-500 text-lg max-w-xl mx-auto">
-            Real words from real patients who trust us with their smiles.
+            Real words from real patients <br className="sm:hidden" /> who trust
+            us with their smiles.
           </p>
         </div>
 

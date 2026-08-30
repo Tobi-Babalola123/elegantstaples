@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-const PHONE = "(555) 012-3456";
-const ADDRESS = "123 Maple Street, Suite 200, Toronto, ON M5V 2T6";
+const PHONE = "361-850-8000";
+const ADDRESS =
+  "41177 South Staples Blvd Suite 300 Corpus Christi, Texas  78411";
 const EMAIL = "hello@elegantstaples.ca";
 
 const BLUE = "#1a6fd4";
@@ -130,7 +131,8 @@ export default function Contact() {
             Visit Our Dental Practice
           </h2>
           <p className="text-slate-500 text-lg">
-            We make it easy to reach us and book a convenient appointment.
+            We make it easy to reach us <br className="sm:hidden" /> and book a
+            convenient appointment.
           </p>
         </div>
 
@@ -173,20 +175,23 @@ export default function Contact() {
                   </div>
                 ))}
               </div>
-              <div className="flex gap-3 mt-6">
+              <div className="flex flex-col sm:flex-row gap-3 mt-6">
                 <a
                   href="#"
-                  className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold text-white transition-colors hover:opacity-90"
+                  className="w-full sm:flex-1 flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl text-sm font-semibold text-white transition-colors hover:opacity-90"
                   style={{ background: BLUE }}
                 >
-                  <IconMapPin /> Get Directions
+                  <IconMapPin />
+                  <span>Get Directions</span>
                 </a>
+
                 <a
                   href={`tel:${PHONE}`}
-                  className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-semibold border-2 transition-colors hover:bg-blue-50"
+                  className="w-full sm:flex-1 flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl text-sm font-semibold border-2 transition-colors hover:bg-blue-50"
                   style={{ borderColor: BLUE, color: BLUE }}
                 >
-                  <IconPhone /> Call Office
+                  <IconPhone />
+                  <span>Call Office</span>
                 </a>
               </div>
             </div>
